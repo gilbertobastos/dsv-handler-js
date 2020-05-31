@@ -1,5 +1,10 @@
 class FixedLenghtFormatHandler {
 
+    fixedLengthRowTypeStructArray = [];
+
+    addNewFixedLenghtType(fixedLengthRowType) {
+        this.fixedLengthRowTypeStructArray.put(fixedLengthRowType);
+    }
 
     convertFixedLengthFmtTextToObj(text) {
 
@@ -8,8 +13,6 @@ class FixedLenghtFormatHandler {
     convertObjToFixedLengthFmtText (object) {
 
     }
-
-
 }
 
 class FixedLenghtRowTypeStructure {
@@ -27,6 +30,14 @@ class FixedLenghtRowTypeStructure {
 
 class FixedLengthColumnStructure {
 
-    
+    columnType;
+    columnPos;
+    columnSize;
 
+    constructor(columnType, columnPos, columnSize) {
+        this.columnType = columnType;
+        this.columnPos = columnPos;
+        this.columnSize = columnSize;
+    }
+    
 }
