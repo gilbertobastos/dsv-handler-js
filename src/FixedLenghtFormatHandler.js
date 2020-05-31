@@ -11,7 +11,7 @@ class FixedLenghtFormatHandler {
     }
 
     convertObjToFixedLengthFmtText (object) {
-
+        
     }
 }
 
@@ -39,5 +39,4 @@ class FixedLengthColumnStructure {
         this.columnPos = columnPos;
         this.columnSize = columnSize;
     }
-    
 }
