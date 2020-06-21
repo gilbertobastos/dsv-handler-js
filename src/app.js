@@ -35,7 +35,7 @@ class DelimiterSeparatedValuesHandler {
                 object[lineCursor].push(columnText), 
                 columnText = '';
     
-            } else if (this.escapeSymbol || text[charCursor] === this.escapeSymbol) {
+            } else if (this.escapeSymbol && text[charCursor] === this.escapeSymbol) {
                 
                 charCursor += this.escapeSymbol.length;
                 while (text[charCursor] !== this.escapeSymbol) {
@@ -46,6 +46,9 @@ class DelimiterSeparatedValuesHandler {
 
                 object[lineCursor].push(columnText);
                 columnText = '';
+                charCursor +=
+                    this.escapeSymbol.length + 
+                    this.delimiterSymbol.length - 1;
               
             } else if (text.substring(charCursor, charCursor + this.newLineSymbol.length) === this.newLineSymbol) {
 
