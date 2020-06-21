@@ -1,5 +1,12 @@
 class DelimiterSeparatedValuesHandler {
 
+    /**
+     * Constructor :D
+     * 
+     * @param {String} delimiterSymbol 
+     * @param {String} newLineSymbol 
+     * @param {String} escapeSymbol Optional.
+     */
     constructor(delimiterSymbol, newLineSymbol, escapeSymbol = null) {
         
         this.delimiterSymbol = delimiterSymbol;
@@ -8,6 +15,13 @@ class DelimiterSeparatedValuesHandler {
 
     }
 
+    /**
+     * Method responsible for converting the DSV-text to an object, where 
+     * the object is an "array of arrays" (array of lines).
+     *
+     * @param {String} text The text that will be converted to a object.
+     * @returns {Object} The object.
+     */
     covertDSVTextToObject(text) {
         
         let object = [[]];
@@ -24,7 +38,6 @@ class DelimiterSeparatedValuesHandler {
             } else if (this.escapeSymbol || text[charCursor] === this.escapeSymbol) {
                 
                 charCursor += this.escapeSymbol.length;
-
                 while (text[charCursor] !== this.escapeSymbol) {
 
                     columnText += text[charCursor++];
@@ -70,6 +83,12 @@ class DelimiterSeparatedValuesHandler {
         return object;
     }
 
+    /**
+     * Method responsible for converting an object (array of arrays) to a DSV-text.
+     * 
+     * @param {Object} object Array of arrays.
+     * @returns {String} The DSV-text.
+     */
     convertObjectToDSVText(object) {    
         
         let text = '';
@@ -95,5 +114,8 @@ class DelimiterSeparatedValuesHandler {
         }
 
         return text;
+
     }
 }
+
+module.exports = DelimiterSeparatedValuesHandler;
