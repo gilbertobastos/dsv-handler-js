@@ -38,7 +38,7 @@ class DelimiterSeparatedValuesHandler {
             } else if (this.escapeSymbol && text[charCursor] === this.escapeSymbol) {
                 
                 charCursor += this.escapeSymbol.length;
-                while (text[charCursor] !== this.escapeSymbol) {
+                while (charCursor < text.length && text[charCursor] !== this.escapeSymbol) {
 
                     columnText += text[charCursor++];
 
